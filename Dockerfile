@@ -16,10 +16,10 @@ EXPOSE 5000
 
 # Define environment variables
 ENV DB_USER=db_user
-ENV DB_PASS=passsword
-ENV DB_HOST=db
-ENV DB_NAME=db_name
-ENV STUDENT=Valentin Hervé
+ENV DB_PASS=dv_password
+ENV DB_HOST=tempconverter-db
+ENV DB_NAME=tempconverter_db
+ENV STUDENT="Valentin Hervé"
 ENV COLLEGE=Algebra
 
 # Run app.py when the container launches
