@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tempconverter
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tempconverter
+  template:
+    metadata:
+      labels:
+        app: tempconverter
+    spec:
+      containers:
+      - name: web
+        image: docker.io/vherve/tempconverter:latest  # Replace with your actual image location
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_USER
+          value: db_user  # MySQL database user name
+        - name: DB_PASS
+          value: db_password  # MySQL database password
+        - name: DB_HOST
+          value: tempconverter-db  # MySQL service DNS name
+        - name: DB_NAME
+          value: tempconverter_db  # MySQL database name
+        - name: STUDENT
+          value: "Valentin Hervé"  # Replace with your name
+        - name: COLLEGE
+          value: "Algebra"  # Replace with your college name
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tempconverter
+spec:
+  selector:
+    app: tempconverter
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
+
