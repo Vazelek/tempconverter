@@ -14,23 +14,23 @@ spec:
     spec:
       containers:
       - name: web
-        image: docker.io/vherve/tempconverter:latest  # Replace with your actual image location
+        image: docker.io/vherve/tempconverter:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
         env:
         - name: DB_USER
-          value: db_user  # MySQL database user name
+          value: db_user
         - name: DB_PASS
-          value: db_password  # MySQL database password
+          value: db_password
         - name: DB_HOST
-          value: tempconverter-db  # MySQL service DNS name
+          value: tempconverter-db
         - name: DB_NAME
-          value: tempconverter_db  # MySQL database name
+          value: tempconverter_db
         - name: STUDENT
-          value: "Valentin Hervé"  # Replace with your name
+          value: "Valentin Hervé"
         - name: COLLEGE
-          value: "Algebra"  # Replace with your college name
+          value: "Algebra"
 ---
 apiVersion: v1
 kind: Service
