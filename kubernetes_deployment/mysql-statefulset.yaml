@@ -20,13 +20,13 @@ spec:
         - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: password  # Replace with your actual MySQL root password
+          value: passsword
         - name: MYSQL_DATABASE
           value: tempconverter_db
         - name: MYSQL_USER
           value: db_user
         - name: MYSQL_PASSWORD
-          value: db_password  # Replace with your desired MySQL user password
+          value: db_password
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
